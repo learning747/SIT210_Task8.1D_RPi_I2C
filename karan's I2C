@@ -1,0 +1,18 @@
+from smbus import SMBus
+
+addr = 0x8
+BUS = SMBus(1)
+
+num = 5
+
+print("5 = ON; 0 = OFF")
+while num == 5:
+    
+    ledstate = input("press 5/0   ")
+    
+    if ledstate == "5":
+        BUS.write_byte(addr, 0x1)
+    elif ledstate == "0":
+        BUS.write_byte(addr, 0x0)
+    else:
+        numb = 0 
